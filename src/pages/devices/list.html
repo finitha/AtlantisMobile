@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      List device
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content>Refreshing...</ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list no-lines>
+    <ion-item *ngFor="let device of devices" (click)="selectDevice(device)">
+      <ion-icon name="{{ getIconDeviceType(device.deviceType) }}" item-start></ion-icon>
+      {{ device.name }}
+      <ion-icon name="arrow-forward" item-end></ion-icon>
+    </ion-item>
+
+    <!-- <button ion-item *ngFor="let device of devices" (click)="selectDevice(device)">
+      <ion-icon name="{{ getIconDeviceType(device.deviceType) }}"></ion-icon>
+    </button> -->
+  </ion-list>
+</ion-content>

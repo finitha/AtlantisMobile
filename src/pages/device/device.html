@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Device
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+
+    <ion-card-header>
+      <ion-icon name="{{ getIconDeviceType(device.deviceType) }}" item-start></ion-icon> {{ device.name }}
+    </ion-card-header>
+
+    <ion-card-content *ngIf="device.deviceType != 'ledDevice' && device.deviceType != 'beeperDevice'">
+      <p>Real time value : {{ metricRealtime.metricValue }}</p>
+      <p>Min day : {{ metricCalcDay.minValue}}</p>
+      <p>Max day : {{ metricCalcDay.maxValue }}</p>
+      <p>Average day : {{ metricCalcDay.averageValue }}</p>
+      <p>Min week : {{ metricCalcWeek.minValue}}</p>
+      <p>Max week : {{ metricCalcWeek.maxValue}}</p>
+      <p>Average week : {{ metricCalcWeek.averageValue}}</p>
+    </ion-card-content>
+
+    <ion-card-content *ngIf="device.deviceType == 'ledDevice' || device.deviceType == 'beeperDevice'">
+      <button ion-button round (click)="sendCommand(device.id)">Send command</button>
+    </ion-card-content>
+
+  </ion-card>
+</ion-content>

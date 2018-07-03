@@ -1,0 +1,11 @@
+{
+  "name": "ionic3-starter",
+  "app_id": "",
+  "type": "ionic-angular",
+  "proxies": [
+	    {
+	        "path": "/token",
+	        "proxyUrl": "https://partners-login.eliotbylegrand.com/token"
+	    }
+	]
+}
